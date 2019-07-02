@@ -1,2 +1,2 @@
 # projects
-projects in golang and python
+hangman project in python
