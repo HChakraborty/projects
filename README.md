@@ -1,5 +1,5 @@
 # Please open the readme file before checking the code. 
-# Hangman project in Python
+# Hangman project in Python 
 # For this code you can choose the following words in this readme or use your own words.
 # Please check spaces between words in your text file like the following words.
 abandon
