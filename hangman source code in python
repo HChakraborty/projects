@@ -19,7 +19,7 @@ print ("Start guessing...")
 time.sleep(0.5)
 
 #here we set the secret
-a=random.randint(0,3000)
+a=random.randint(0,3001)
 #print(a)
 word=(linecache.getline("hangman.txt",a))
 #print(word)
