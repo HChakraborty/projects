@@ -10,3 +10,4 @@ You can choose the words from "HANGMAN WORDS" file or create your own new words 
 
 # Website to download Anaconda
 https://www.anaconda.com/distribution/
+ 
