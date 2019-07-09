@@ -7,18 +7,18 @@ import (
 	"time"
 )
 
-
-type OFFICER struct {
+// DECLARING OBJECTS NAMED OFFICER, Pilot, Engineer, Captain, WeaponMaster, Miner, TravelShip, Resource, Planet, alienspecies, AlienSpaceship
+type OFFICER struct { 
 	name string
 	age int
 }
 
-type Pilot struct {
+type Pilot struct {   
 
-	EvasionSkill int
+	EvasionSkill int   
 }
 
-type Engineer struct {
+type Engineer struct {   
 	DefenceSkill int
 }
 
@@ -84,10 +84,10 @@ var Cap Captain
 var WM WeaponMaster
 var Min Miner
 T.trophy=1
-fmt.Print("Welcome To The Game\n")
+fmt.Print("Welcome To The Game\n")                                     //INTRO
 fmt.Print("\n")
 time.Sleep(2*time.Second)
-fmt.Print("Before Starting The Game, please select the travelship->\n")
+fmt.Print("Before Starting The Game, please select the travelship->\n")//ASKING FOR CHOOSING TRAVELSHIP
 time.Sleep(2*time.Second)
 fmt.Print("1: RED TravelShip---->\n"  +
 	             "PILOT->\n"  +
@@ -152,6 +152,7 @@ fmt.Print("1: RED TravelShip---->\n"  +
     fmt.Printf("\tSelect(1-5): ")
 	fmt.Scan(&t)
 	switch t {
+	//CHOSEN TRAVELSHIP
 	case 1:
 		fmt.Printf(" \tSo you have chosen RED TravelShip\n")
 		pil.EvasionSkill = 10
@@ -205,7 +206,8 @@ fmt.Print("1: RED TravelShip---->\n"  +
 }
 
 func assigning(TS TravelShip,pil Pilot,Eng Engineer, Cap Captain,WM WeaponMaster,Min Miner) {
-var o int
+//ASSIGNING VALUES AND STARTING GAME 	
+	var o int
 var OFFC OFFICER
 var Res Resource
 time.Sleep(2*time.Second)
@@ -248,22 +250,22 @@ fmt.Printf("\n\n")
 i:=1
 for i<1000 {
 	if T.VALOR>50{
-		fmt.Printf("SINCE YOU HAVE %d VALOR POINT(S), YOU WON MASTER TROPHY %d",T.VALOR,T.trophy)
+		fmt.Printf("SINCE YOU HAVE %d VALOR POINT(S), YOU WON MASTER TROPHY %d",T.VALOR,T.trophy) //CONDITION FOR PRIZE
 		T.trophy+=1
 		T.VALOR=0
 	}
 	if T.Fuel<150 {
 		time.Sleep(2*time.Second)
-		fmt.Printf("\n\tYou have insufficient fuel, lets restore\n")
+		fmt.Printf("\n\tYou have insufficient fuel, lets restore\n")//CONDITION FOR JOURNEY
      fuelrestore()
 	}
 	if T.Gems<150{
 		time.Sleep(2*time.Second)
-		fmt.Printf("\n\tYou have insufficient gems, lets restore\n")
+		fmt.Printf("\n\tYou have insufficient gems, lets restore\n")//CONDITION FOR JOURNEY
 		Gemsrestore()
 	}
 
-	fmt.Printf("\n\t\t%s, we are starting the journey\n",TS.name )
+	fmt.Printf("\n\t\t%s, we are starting the journey\n",TS.name )//STARTING JOURNEY
 	time.Sleep(2*time.Second)
 	fmt.Printf("\t\tPlease choose one of the options\n\t" +
 		              "\t\t1: Planet Search for resources\n\t" +
@@ -272,6 +274,7 @@ for i<1000 {
 		              "\t\t4: Exit Game\n")
 	fmt.Printf("\n\t\tYOUR OPTION: ")
 	fmt.Scan(&o)
+	//CHOOSING MINE,TRADE, BATTLE AND STATUS OPTIONS
 	switch o {
 	    case 1:
                 T.Fuel-=10
@@ -293,6 +296,7 @@ for i<1000 {
 
 }
 func check(){
+	//CHECK STATUS
 	time.Sleep(2*time.Second)
 	fmt.Printf("YOUR STATUS---->\n")
 	fmt.Printf("\tNAME OF OFFICER-->%s\n",T.name)
@@ -310,6 +314,7 @@ func check(){
 	fmt.Printf("\t VALOR POINTS-->%d\n\n",T.VALOR)
 }
 func planetsearch(TS TravelShip) {
+	//ASKING FOR MINE AND TRADE
 	var  f int
 	time.Sleep(2*time.Second)
 	fmt.Printf("\n\tYOU ARE GOING ON AN EXPLORATION. DO YOU WANT TO " +
@@ -329,7 +334,8 @@ func planetsearch(TS TravelShip) {
 	}
 }
 func AlienSpaceShip(TS TravelShip){
-var t int
+//CHECKING ALIENSPACESHIP FOR BATTLE
+	var t int
 var ASP AlienSpaceship
 t=rand.Intn(13)
 switch t{
@@ -382,6 +388,7 @@ default:
 }
 }
 func battleonplanet(TS TravelShip,P Planet,AS alienspecies,f int){
+	//BATTLE WITH ALIENSPECIES
 	var pt,pa,r,m int
 	time.Sleep(2*time.Second)
 	fmt.Printf("\n\tYOU HAVE LANDED ON PLANET '%s'",P.planet)
@@ -486,6 +493,7 @@ func battleonplanet(TS TravelShip,P Planet,AS alienspecies,f int){
 		}
 }
 func planetandaliens(TS TravelShip,f int) {
+	//RANDOMLY CHOOSING PLANETS FOR MINE OR TRADE
 	var P Planet
 	var AS alienspecies
 	t:= rand.Intn(10)
@@ -746,6 +754,7 @@ func planetandaliens(TS TravelShip,f int) {
 	}
 }
 func mining(P Planet, m int) {
+//PERFORMING MINING
 	if m == 0 {
 		fmt.Printf("\n\tYOU HAVE LANDED ON PLANET '%s'", P.planet)
 		time.Sleep(2 * time.Second)
@@ -773,6 +782,7 @@ func mining(P Planet, m int) {
 }
 
 func trade(P Planet, m int) {
+	//PERFORMING TRADE
 	if m==0 {
 		fmt.Printf("\n\tYOU HAVE LANDED ON PLANET '%s'", P.planet)
 		time.Sleep(2 * time.Second)
@@ -806,6 +816,7 @@ func trade(P Planet, m int) {
 
 }
 func fuelrestore(){
+	//RESTORING FUEL WHEN LESS THAN REQUIRED VALUE
 	fmt.Printf("\n\tORIGINAL FUEL-->%d\n",T.Fuel)
 	fmt.Printf("\n\tWE ARE GOING TO ADD 10 UNITS OF FUEL\n")
 	T.Fuel=T.Fuel+10
@@ -817,6 +828,7 @@ func fuelrestore(){
 	return
 }
 func Gemsrestore() {
+	//RESTORING GEMS WHEN LESS THAN REQUIRED VALUE
 	fmt.Printf("\n\tORIGINAL Gems-->%d\n",T.Gems)
 	fmt.Printf("\n\tWE ARE GOING TO ADD 10 UNITS OF Gems\n")
 	T.Gems=T.Gems+10
@@ -828,6 +840,7 @@ func Gemsrestore() {
 	return
 }
 func battleonspaceship(TS TravelShip, ASP AlienSpaceship){
+	//BATTLE WITH ALIENSPACESHIP
 	var s, pa, pt int
 	time.Sleep(2*time.Second)
 	fmt.Printf("\n\tYOU HAVE ENCOUNTERED THE ALIENSPACESHIP: %s\n",ASP.alien)
