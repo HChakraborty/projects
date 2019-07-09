@@ -946,3 +946,4 @@ func battleonspaceship(TS TravelShip, ASP AlienSpaceship){
 		     return
 		     }
 }
+ 
