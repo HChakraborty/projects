@@ -8,17 +8,17 @@ import (
 )
 
 // DECLARING OBJECTS NAMED OFFICER, Pilot, Engineer, Captain, WeaponMaster, Miner, TravelShip, Resource, Planet, alienspecies, AlienSpaceship
-type OFFICER struct { 
+type OFFICER struct {
 	name string
 	age int
 }
 
-type Pilot struct {   
+type Pilot struct {
 
-	EvasionSkill int   
+	EvasionSkill int
 }
 
-type Engineer struct {   
+type Engineer struct {
 	DefenceSkill int
 }
 
@@ -206,7 +206,7 @@ fmt.Print("1: RED TravelShip---->\n"  +
 }
 
 func assigning(TS TravelShip,pil Pilot,Eng Engineer, Cap Captain,WM WeaponMaster,Min Miner) {
-//ASSIGNING VALUES AND STARTING GAME 	
+//ASSIGNING VALUES AND STARTING GAME
 	var o int
 var OFFC OFFICER
 var Res Resource
@@ -906,29 +906,29 @@ func battleonspaceship(TS TravelShip, ASP AlienSpaceship){
 				fmt.Printf("\n\tYOU GAINED 10 VALOR POINTS\n")
 				time.Sleep(2 * time.Second)
 			} else if TS.evasionskill<ASP.speed {
-				if ASP.attackskill>TS.ArmourStrength {
+				if ASP.attackskill > TS.ArmourStrength {
 					time.Sleep(2 * time.Second)
 					fmt.Printf("\n\tWE TOOK DAMAGE FROM THE ALIENSPACESHIP'S ATTACK\n")
 					time.Sleep(2 * time.Second)
-					pa+=10
+					pa += 10
 					fmt.Printf("\n\tTHE ALIENSPACESHIP GAINED 10 VALOR POINTS\n")
 					time.Sleep(2 * time.Second)
-				} else if ASP.attackskill<TS.ArmourStrength {
+				} else if ASP.attackskill < TS.ArmourStrength {
 					time.Sleep(2 * time.Second)
 					fmt.Printf("\n\tWE PREVENTED THE DAMAGE\n")
 					time.Sleep(2 * time.Second)
-					pt+=10
+					pt += 10
 					fmt.Printf("\n\tYOU GAINED 10 VALOR POINTS\n")
 					time.Sleep(2 * time.Second)
 				}
-			}
+			} }
             if pa>=pt{
 				fmt.Printf("\n\tYOUR VALOR POINTS--->%d\n",pt)
 				fmt.Printf("\n\tALIENSPACESHIP VALOR POINTS--->%d\n",pa)
             	time.Sleep(2 * time.Second)
 				fmt.Printf("\n\tTHE ALIENSPACESHIP WON BY %d POINTS\n",pa-pt)
 				time.Sleep(2 * time.Second)
-
+				return
 			} else if pt>pa{
 				fmt.Printf("\n\tYOUR VALOR POINTS--->%d\n",pt)
 				fmt.Printf("\n\tALIENSPACESHIP VALOR POINTS--->%d\n",pa)
@@ -936,9 +936,9 @@ func battleonspaceship(TS TravelShip, ASP AlienSpaceship){
 				fmt.Printf("\n\tYOU WON BY %d POINTS\n",pt-pa)
 				time.Sleep(2 * time.Second)
                 T.VALOR+=10
-			}
+                return			}
 
-		   }
+
 
 		   default:
 		     time.Sleep(2*time.Second)
@@ -946,4 +946,3 @@ func battleonspaceship(TS TravelShip, ASP AlienSpaceship){
 		     return
 		     }
 }
- 
