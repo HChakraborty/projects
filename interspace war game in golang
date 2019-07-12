@@ -457,7 +457,7 @@ func battleonplanet(TS TravelShip,P Planet,AS alienspecies,f int){
 		fmt.Printf("\n\tYOUR POINTS--->%d\n",pt)
 		fmt.Printf("\n\tALIEN POINTS--->%d\n",pa)
 		time.Sleep(2*time.Second)
-		fmt.Printf("\n\t YOU HAVE %d POINT(S) HIGHER THAN THE ELORIS", pt-pa)
+		fmt.Printf("\n\t YOU HAVE %d POINT(S) HIGHER THAN THE %s", pt-pa,AS.alien)
 		time.Sleep(2*time.Second)
 		fmt.Printf("\n\tYOU WON")
 		time.Sleep(2*time.Second)
